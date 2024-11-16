@@ -9,7 +9,7 @@ import MagnetLink from "./MagnetLink";
 import useIsMobile from "@/hooks/useIsMobile";
 import { usePathname } from "next/navigation";
 
-function Navbar() {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScroll();
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -101,7 +101,7 @@ function Navbar() {
 
       {/* Sidenav */}
       <div
-        className={`fixed top-0 right-0 z-40 h-full w-full bg-[#191f25] text-white p-8 transition-transform transform ${
+        className={`fixed top-0 right-0 z-40 h-full w-full bg-[#191f25] text-white p-8 transition-transform duration-300 transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -180,5 +180,3 @@ function Navbar() {
     </>
   );
 }
-
-export default Navbar;

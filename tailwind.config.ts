@@ -12,6 +12,14 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontSize: {
+        "10xl": "10rem",
+        "11xl": "12.5rem",
+        "12xl": "14rem",
+      },
+      fontWeight: {
+        medium: "500",
+      },
     },
   },
   plugins: [],
