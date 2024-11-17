@@ -7,7 +7,7 @@ const useIsMobile = (): boolean => {
     // Function to check the window width
     const checkIsMobile = () => {
       // You can adjust the width to your specific needs (e.g., 768px for tablets and phones)
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 1024);
     };
 
     // Check on mount

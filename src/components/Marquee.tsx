@@ -11,6 +11,7 @@ import {
   useAnimationFrame,
 } from "motion/react";
 import { wrap } from "@motionone/utils";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const Marquee: React.FC = () => {
   const baseX = useMotionValue(0);
@@ -28,7 +29,7 @@ const Marquee: React.FC = () => {
 
   const directionFactor = useRef<number>(1);
   useAnimationFrame((t, delta) => {
-    let moveBy = directionFactor.current * -4 * (delta / 1000);
+    let moveBy = directionFactor.current * -3 * (delta / 1000);
 
     if (velocityFactor.get() < 0) {
       directionFactor.current = -1;
@@ -41,10 +42,14 @@ const Marquee: React.FC = () => {
     baseX.set(baseX.get() + moveBy);
   });
 
+  const isMobile = useIsMobile();
+
   return (
     <div className="overflow-hidden whitespace-nowrap flex flex-wrap">
       <motion.div
-        className="flex whitespace-nowrap text-11xl font-medium text-white"
+        className={`flex whitespace-nowrap font-medium text-white ${
+          isMobile ? "text-9xl" : "text-11xl"
+        }`}
         style={{ x }}
       >
         <span>Jonathan Weber -&nbsp;</span>
