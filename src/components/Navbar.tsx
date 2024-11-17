@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, useScroll } from "motion/react";
+import { AnimatePresence, motion, useScroll } from "motion/react";
 import { MdMoreHoriz } from "react-icons/md";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
@@ -13,6 +13,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScroll();
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [windowHeight, setWindowHeight] = useState<number>(0);
   const isMobile = useIsMobile();
   const pathname = usePathname();
 
@@ -33,6 +34,13 @@ export default function Navbar() {
     };
   }, [scrollY]);
 
+  useEffect(() => {
+    // Set window height on mount
+    if (typeof window !== "undefined") {
+      setWindowHeight(window.innerHeight);
+    }
+  }, []);
+
   const toggleNavbar = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
@@ -45,10 +53,8 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
-  const buttonOpacity =
-    !isMobile && scrollPosition > window.innerHeight ? 1 : isMobile ? 1 : 0;
-  const buttonScale =
-    !isMobile && scrollPosition > window.innerHeight ? 1 : isMobile ? 1 : 0;
+  const showButton =
+    !isMobile && scrollPosition > windowHeight ? true : isMobile ? true : false;
 
   return (
     <>
@@ -155,28 +161,31 @@ export default function Navbar() {
       </div>
 
       {/* Navbar toggle button */}
-      <div
-        id="navbar-container"
-        className={`fixed top-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-          isOpen ? "pointer-events-auto" : "pointer-events-none"
-        }`}
-      >
-        <motion.button
-          className={`${
-            buttonOpacity ? "visible" : "invisible"
-          } relative bg-none border-none cursor-pointer pointer-events-auto rounded-full w-16 h-16 m-6 flex items-center justify-center bg-white text-black z-40 hover:bg-teal-400 hover:text-white`}
-          onClick={toggleNavbar}
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: buttonScale, opacity: buttonOpacity }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
-          <MdMoreHoriz
-            className={`text-5xl transition-transform duration-300 ease-in-out ${
-              isOpen ? "rotate-90" : "rotate-0"
-            }`}
-          />
-        </motion.button>
-      </div>
+
+      <AnimatePresence>
+        {(showButton || isOpen) && (
+          <motion.div
+            className="fixed top-0 right-0 z-50 m-10"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <MagnetLink>
+              <button
+                className={`relative bg-none border-none cursor-pointer pointer-events-auto rounded-full w-20 h-20 flex items-center justify-center bg-white text-black z-40 hover:bg-[#8bced2] hover:text-white`}
+                onClick={toggleNavbar}
+              >
+                <MdMoreHoriz
+                  className={`text-6xl transition-transform duration-300 ease-in-out ${
+                    isOpen ? "rotate-90" : "rotate-0"
+                  }`}
+                />
+              </button>
+            </MagnetLink>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

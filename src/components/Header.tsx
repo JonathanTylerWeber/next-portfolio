@@ -10,7 +10,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="h-screen w-full bg-[#76ABAE] relative">
+      <div className="h-screen w-screen bg-[#76ABAE] relative">
         {/* desktop image */}
         {!isMobile && (
           <div className="h-full w-full flex justify-center overflow-hidden relative">
@@ -50,7 +50,7 @@ export default function Header() {
         )}
 
         {isMobile && (
-          <div className="absolute bottom-14 text-2xl md:text-4xl left-1/2 transform -translate-x-1/2 flex justify-center whitespace-nowrap">
+          <div className="absolute bottom-14 text-2xl sm:text-3xl md:text-4xl left-1/2 transform -translate-x-1/2 flex justify-center whitespace-nowrap">
             <p>Junior Full Stack Developer</p>
           </div>
         )}

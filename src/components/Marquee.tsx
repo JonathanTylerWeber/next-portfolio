@@ -45,7 +45,7 @@ const Marquee: React.FC = () => {
   const isMobile = useIsMobile();
 
   return (
-    <div className="overflow-hidden whitespace-nowrap flex flex-wrap">
+    <div className="relative overflow-hidden whitespace-nowrap flex flex-wrap">
       <motion.div
         className={`flex whitespace-nowrap font-medium text-white ${
           isMobile ? "text-9xl" : "text-11xl"
