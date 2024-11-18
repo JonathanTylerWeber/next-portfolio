@@ -25,7 +25,7 @@ export default function Project({
   const isMobile = useIsMobile();
 
   return (
-    <div className="mt-20 bg-[#191f25] rounded-lg flex flex-col items-center shadow-2xl">
+    <div className="mt-20 bg-[#191f25] rounded-lg flex flex-col items-center shadow-[-2px_4px_25px_-1px_rgba(0,0,0,0.75)]">
       <video
         className="w-full max-h-[40em] rounded-t-lg object-cover"
         src={video}
@@ -34,19 +34,19 @@ export default function Project({
         muted
         aria-label={alt}
       />
-      <div className="p-16">
-        <p className="text-5xl pb-5 font-semibold text-[#8bced2] font-kanit">
+      <div className="p-7 md:p-12 lg:p-16">
+        <p className="text-3xl lg:text-5xl pb-5 font-semibold text-[#8bced2] font-kanit">
           {projName}
         </p>
-        <p className="text-2xl pb-5 font-light text-white font-kanit">
+        <p className="md:text-xl lg:text-2xl pb-5 font-light text-white font-kanit">
           {projDesc}
         </p>
-        <p className="text-xl pb-5 text-gray-400 font-kanit">{tech}</p>
-        <p className="text-xl pb-5 font-light text-white">
+        <p className="lg:text-xl pb-5 text-gray-400 font-kanit">{tech}</p>
+        <p className="lg:text-xl pb-5 font-light text-white">
           (The site is deployed on render, please allow 15-30s for the page to
           load and to signup/login)
         </p>
-        <div className="flex justify-around mt-12 px-20">
+        <div className="flex justify-around md:mt-12 lg:px-20">
           <MagnetLink>
             <Link
               href={projLink}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion, useScroll } from "motion/react";
 import { MdMoreHoriz } from "react-icons/md";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -19,6 +19,9 @@ export default function Navbar() {
 
   const githubLink = "https://github.com/JonathanTylerWeber";
   const linkedInLink = "https://www.linkedin.com/in/jonathantweber/";
+
+  const sidenavRef = useRef<HTMLDivElement>(null);
+  const toggleButtonRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const updateScrollPosition = () => {
@@ -41,12 +44,36 @@ export default function Navbar() {
     }
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        sidenavRef.current &&
+        !sidenavRef.current.contains(event.target as Node) &&
+        toggleButtonRef.current &&
+        !toggleButtonRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    // Cleanup the event listener on unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
   const toggleNavbar = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
 
   const scrollToProjects = () => {
-    const projectsElement = document.getElementById("recent");
+    const projectsElement = document.getElementById("body");
     if (projectsElement) {
       projectsElement.scrollIntoView({ behavior: "smooth" });
     }
@@ -65,7 +92,7 @@ export default function Navbar() {
             <Link
               href="/"
               className={`text-3xl font-kanit text-white p-8 z-50 ${
-                pathname === "/" ? "hover:text-black" : "hover:text-teal-400"
+                pathname === "/" ? "hover:text-black" : "hover:text-[#8bced2]"
               }`}
               onClick={pathname === "/" ? scrollToProjects : undefined}
             >
@@ -82,7 +109,7 @@ export default function Navbar() {
                   className={`text-3xl font-kanit text-white p-8 pr-14 z-50 ${
                     pathname === "/"
                       ? "hover:text-black"
-                      : "hover:text-teal-400"
+                      : "hover:text-[#8bced2]"
                   }`}
                 >
                   About
@@ -94,7 +121,7 @@ export default function Navbar() {
                   className={`text-3xl font-kanit text-white p-8 z-50 ${
                     pathname === "/"
                       ? "hover:text-black"
-                      : "hover:text-teal-400"
+                      : "hover:text-[#8bced2]"
                   }`}
                 >
                   Contact
@@ -107,56 +134,49 @@ export default function Navbar() {
 
       {/* Sidenav */}
       <div
-        className={`fixed top-0 right-0 z-40 h-full w-full bg-[#191f25] text-white p-8 transition-transform duration-300 transform ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+        ref={sidenavRef}
+        className={`fixed top-0 right-0 z-40 h-full w-full md:w-2/5 lg:w-1/3 xl:w-1/4 bg-[#191f25] text-white p-8 transition-transform duration-300 transform  ${
+          isOpen
+            ? "translate-x-0 shadow-[-8px_4px_25px_-1px_rgba(0,0,0,0.75)]"
+            : "translate-x-full"
         }`}
       >
-        <div className="mt-32 space-y-10">
-          <p className="text-2xl text-gray-400 mb-4">Navigation</p>
-          <hr className="border-t border-gray-600 mb-12" />
-          <MagnetLink>
-            <Link
-              href="/"
-              className={`text-5xl text-white pb-20 ${
-                pathname === "/" ? "hover:text-black" : "hover:text-teal-400"
-              }`}
-              onClick={pathname === "/" ? scrollToProjects : undefined}
-            >
-              Jonathan Weber
-            </Link>
-          </MagnetLink>
-          <MagnetLink>
-            <Link
-              href="/about"
-              className={`text-5xl text-white pb-20 ${
-                pathname === "/" ? "hover:text-black" : "hover:text-teal-400"
-              }`}
-            >
-              About
-            </Link>
-          </MagnetLink>
-          <MagnetLink>
-            <Link
-              href="/contact"
-              className={`text-5xl text-white pb-20 ${
-                pathname === "/" ? "hover:text-black" : "hover:text-teal-400"
-              }`}
-            >
-              Contact
-            </Link>
-          </MagnetLink>
+        <div className="mt-32 space-y-10 flex flex-col items-start">
+          <p className="text-3xl text-gray-400 mb-4">Navigation</p>
+          <hr className="w-full border-t-2 border-gray-400 mb-12" />
+
+          <Link
+            href="/"
+            className="text-4xl text-white hover:text-[#8bced2] whitespace-nowrap"
+            onClick={pathname === "/" ? scrollToProjects : undefined}
+          >
+            Jonathan Weber
+          </Link>
+          <Link
+            href="/about"
+            className="text-4xl text-white hover:text-[#8bced2]"
+          >
+            About
+          </Link>
+          <Link
+            href="/contact"
+            className="text-4xl text-white hover:text-[#8bced2]"
+          >
+            Contact
+          </Link>
         </div>
-        <div className="flex justify-center mt-20">
-          <MagnetLink>
-            <a href={githubLink} target="_blank" rel="noopener noreferrer">
-              <FaGithub className="text-white text-7xl mx-16" />
-            </a>
-          </MagnetLink>
-          <MagnetLink>
-            <a href={linkedInLink} target="_blank" rel="noopener noreferrer">
-              <FaLinkedin className="text-white text-7xl mx-16" />
-            </a>
-          </MagnetLink>
+        <div className="flex mt-20 justify-around">
+          <Link href={githubLink} target="_blank" rel="noopener noreferrer">
+            <MagnetLink>
+              <FaGithub className="text-white text-6xl md:text-7xl m-5 hover:text-[#8bced2]" />
+            </MagnetLink>
+          </Link>
+
+          <Link href={linkedInLink} target="_blank" rel="noopener noreferrer">
+            <MagnetLink>
+              <FaLinkedin className="text-white text-6xl md:text-7xl m-5 hover:text-[#8bced2]" />
+            </MagnetLink>
+          </Link>
         </div>
       </div>
 
@@ -165,7 +185,8 @@ export default function Navbar() {
       <AnimatePresence>
         {(showButton || isOpen) && (
           <motion.div
-            className="fixed top-0 right-0 z-50 m-10"
+            ref={toggleButtonRef}
+            className="fixed top-0 right-0 z-50 m-3 lg:m-10"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
@@ -173,11 +194,13 @@ export default function Navbar() {
           >
             <MagnetLink>
               <button
-                className={`relative bg-none border-none cursor-pointer pointer-events-auto rounded-full w-20 h-20 flex items-center justify-center bg-white text-black z-40 hover:bg-[#8bced2] hover:text-white`}
+                aria-expanded={isOpen}
+                aria-controls="sidenav"
+                className={`relative bg-none border-none cursor-pointer pointer-events-auto rounded-full w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center bg-white text-black z-40 hover:bg-[#8bced2] hover:text-white`}
                 onClick={toggleNavbar}
               >
                 <MdMoreHoriz
-                  className={`text-6xl transition-transform duration-300 ease-in-out ${
+                  className={`text-5xl lg:text-6xl transition-transform duration-300 ease-in-out ${
                     isOpen ? "rotate-90" : "rotate-0"
                   }`}
                 />

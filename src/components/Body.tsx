@@ -7,13 +7,13 @@ import FadeInOnScroll from "./FadeInOnScroll";
 
 function Body() {
   return (
-    <div className="w-full relative bg-[#222831]">
+    <div className="w-full relative bg-[#222831]" id="body">
       <div className="pt-20 lg:pt-40 pb-20 px-2 lg:px-20 relative bg-[#222831]">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6">
           <FadeInOnScroll>
             <div className="flex flex-col lg:grid lg:grid-cols-3 gap-12 pb-20 lg:pb-40 w-full">
               <div className="lg:col-span-2">
-                <p className="text-2xl lg:text-3xl text-white leading-normal tracking-wide font-light">
+                <p className="text-xl md:text-2xl lg:text-3xl px-0 md:px-10 text-white leading-normal tracking-wide font-light">
                   Dedicated to creating impactful web applications that merge
                   design, functionality, and seamless user interaction. With a
                   strong foundation in both front-end and back-end technologies,
@@ -25,7 +25,7 @@ function Body() {
                 <MagnetLink>
                   <Link
                     href="/about"
-                    className="text-5xl text-[#8bced2] font-kanit hover:text-white whitespace-nowrap"
+                    className="text-4xl lg:text-5xl text-[#8bced2] font-kanit hover:text-white whitespace-nowrap"
                   >
                     {"< aboutMe />"}
                   </Link>
