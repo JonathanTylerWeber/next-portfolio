@@ -5,13 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
-import useIsMobile from "../hooks/useIsMobile";
 import MagnetLink from "./MagnetLink";
 
 const Footer: React.FC = () => {
   const githubLink = "https://github.com/JonathanTylerWeber";
   const linkedInLink = "https://www.linkedin.com/in/jonathantweber/";
-  const isMobile = useIsMobile();
 
   const [chinaTime, setChinaTime] = useState<string>("");
 
