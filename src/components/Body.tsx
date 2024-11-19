@@ -4,21 +4,12 @@ import Link from "next/link";
 import Project from "./Project";
 import MagnetLink from "./MagnetLink";
 import FadeInOnScroll from "./FadeInOnScroll";
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
 
-function Body() {
-  const body = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: body,
-    offset: ["start end", "end end"],
-  });
-
-  const height = useTransform(scrollYProgress, [0, 1], [150, 0]);
-
+export default function Body() {
   return (
-    <div className="w-full relative bg-[#222831] z-30" id="body" ref={body}>
-      <div className="pt-20 lg:pt-40 pb-20 px-2 lg:px-20 relative bg-[#222831]">
+    <div className="relative w-full bg-[#222831]" id="body">
+      {/* Main Content */}
+      <div className="relative z-10 pt-20 lg:pt-40 pb-20 px-2 lg:px-20">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6">
           <FadeInOnScroll>
             <div className="flex flex-col lg:grid lg:grid-cols-3 gap-12 pb-20 lg:pb-40 w-full">
@@ -50,6 +41,7 @@ function Body() {
             </p>
           </FadeInOnScroll>
 
+          {/* Projects */}
           <Project
             video="/proseVid.mp4"
             alt={"prose website"}
@@ -79,18 +71,6 @@ function Body() {
           />
         </div>
       </div>
-      <motion.div style={{ height }} className="relative bg-[#222831]">
-        <div
-          className="
-            absolute w-full bg-[#222831] z-10 
-            shadow-[0px_60px_50px_rgba(0,0,0,0.748)] 
-            rounded-bl-[75%] rounded-br-[75%] h-[750%] 
-            md:rounded-bl-[50%] md:rounded-br-[50%] md:h-[3000%]
-          "
-        ></div>
-      </motion.div>
     </div>
   );
 }
-
-export default Body;

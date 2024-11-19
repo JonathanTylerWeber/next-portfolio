@@ -3,20 +3,22 @@
 import { useEffect, useRef } from "react";
 import {
   motion,
-  useScroll,
   useSpring,
   useTransform,
   useMotionValue,
   useVelocity,
   useAnimationFrame,
   useMotionValueEvent,
+  useScroll,
 } from "motion/react";
 import { wrap } from "@motionone/utils";
 import useIsMobile from "@/hooks/useIsMobile";
+// import { useScrollContext } from "./ScrollContext";
 
-const Marquee: React.FC = () => {
-  const baseX = useMotionValue(0);
+export default function Marquee() {
   const { scrollY } = useScroll();
+
+  const baseX = useMotionValue(0);
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
     damping: 100,
@@ -84,6 +86,4 @@ const Marquee: React.FC = () => {
       </motion.div>
     </div>
   );
-};
-
-export default Marquee;
+}
