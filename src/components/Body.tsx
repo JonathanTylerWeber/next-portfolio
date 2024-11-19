@@ -17,7 +17,7 @@ function Body() {
   const height = useTransform(scrollYProgress, [0, 1], [150, 0]);
 
   return (
-    <div className="w-full relative bg-[#222831] z-30" id="body">
+    <div className="w-full relative bg-[#222831] z-30" id="body" ref={body}>
       <div className="pt-20 lg:pt-40 pb-20 px-2 lg:px-20 relative bg-[#222831]">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6">
           <FadeInOnScroll>

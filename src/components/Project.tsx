@@ -25,7 +25,7 @@ export default function Project({
   const isMobile = useIsMobile();
 
   return (
-    <div className="mt-20 bg-[#191f25] rounded-lg flex flex-col items-center shadow-[-2px_4px_25px_-1px_rgba(0,0,0,0.75)]">
+    <div className="mt-20 bg-[#191f25] rounded-lg flex flex-col items-center shadow-[-2px_4px_25px_-1px_rgba(0,0,0,0.75)] relative">
       <video
         className="w-full max-h-[40em] rounded-t-lg object-cover"
         src={video}

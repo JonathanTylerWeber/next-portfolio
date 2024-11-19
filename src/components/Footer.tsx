@@ -74,24 +74,24 @@ const Footer: React.FC = () => {
         </div>
         <div className="flex space-x-32 pt-20 lg:pt-0">
           <MagnetLink>
-            <a
+            <Link
               href={githubLink}
               target="_blank"
               rel="noopener noreferrer"
               className="text-6xl text-[#8bced2] hover:text-white transition-colors duration-300"
             >
               <FaGithub />
-            </a>
+            </Link>
           </MagnetLink>
           <MagnetLink>
-            <a
+            <Link
               href={linkedInLink}
               target="_blank"
               rel="noopener noreferrer"
               className="text-6xl text-[#8bced2] hover:text-white transition-colors duration-300"
             >
               <FaLinkedin />
-            </a>
+            </Link>
           </MagnetLink>
         </div>
       </div>
