@@ -1,5 +1,4 @@
 import { FaLink, FaGithub } from "react-icons/fa";
-import useIsMobile from "../hooks/useIsMobile";
 import Link from "next/link";
 import MagnetLink from "./MagnetLink";
 
@@ -22,8 +21,6 @@ export default function Project({
   projLink,
   gitLink,
 }: ProjectProps) {
-  const isMobile = useIsMobile();
-
   return (
     <div className="mt-20 bg-[#191f25] rounded-lg flex flex-col items-center shadow-[-2px_4px_25px_-1px_rgba(0,0,0,0.75)] relative">
       <video
@@ -38,7 +35,7 @@ export default function Project({
         <p className="text-3xl lg:text-5xl pb-5 font-semibold text-[#8bced2] font-kanit">
           {projName}
         </p>
-        <p className="md:text-xl lg:text-2xl pb-5 font-light text-white font-kanit">
+        <p className="md:text-xl lg:text-2xl pb-5 font-light text-white font-kanit text-justify">
           {projDesc}
         </p>
         <p className="lg:text-xl pb-5 text-gray-400 font-kanit">{tech}</p>

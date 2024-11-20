@@ -14,7 +14,7 @@ export default function Body() {
           <FadeInOnScroll>
             <div className="flex flex-col lg:grid lg:grid-cols-3 gap-12 pb-20 lg:pb-40 w-full">
               <div className="lg:col-span-2">
-                <p className="text-xl md:text-2xl lg:text-3xl px-0 md:px-10 text-white leading-normal tracking-wide font-light">
+                <p className="text-xl md:text-2xl lg:text-3xl px-0 md:px-10 text-white leading-normal tracking-wide font-light text-justify">
                   Dedicated to creating impactful web applications that merge
                   design, functionality, and seamless user interaction. With a
                   strong foundation in both front-end and back-end technologies,
