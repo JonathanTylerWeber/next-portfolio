@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
     const { email, name, subject, text } = await req.json();
 
     await resend.emails.send({
-      from: "noreply@jonathantweber.com",
+      from: "Jonathan <noreply@jonathantweber.com>",
       to: "jonathantweber@gmail.com",
       subject: `New message from ${name}`,
       react: EmailTemplate({ email, name, subject, text }),
