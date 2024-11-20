@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
 
     // Send the email using Resend
     await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "noreply@jonathantweber.com",
       to: "jonathantweber@gmail.com",
       subject: `New message from ${name}`,
       react: EmailTemplate({ email, name, subject, text }),
