@@ -8,7 +8,6 @@ export async function POST(req: NextRequest) {
   try {
     const { email, name, subject, text } = await req.json();
 
-    // Send the email using Resend
     await resend.emails.send({
       from: "noreply@jonathantweber.com",
       to: "jonathantweber@gmail.com",

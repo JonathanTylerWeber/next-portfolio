@@ -13,7 +13,6 @@ import {
 } from "motion/react";
 import { wrap } from "@motionone/utils";
 import useIsMobile from "@/hooks/useIsMobile";
-// import { useScrollContext } from "./ScrollContext";
 
 export default function Marquee() {
   const { scrollY } = useScroll();
