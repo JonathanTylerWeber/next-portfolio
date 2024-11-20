@@ -1,10 +1,11 @@
+// components/EmailForm.tsx
+
 "use client";
 
 import React, { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { FaSpinner } from "react-icons/fa";
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:5001";
+import axios from "axios";
 
 const EmailForm: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -17,17 +18,35 @@ const EmailForm: React.FC = () => {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true);
+    setStatus("");
+
     try {
-      const response = await axios.post(`${BASE_URL}/send-email`, {
+      const response = await axios.post("/api/send", {
         email,
         name,
         subject,
         text,
       });
-      setStatus("Email sent successfully");
-    } catch (error) {
-      setStatus("Error sending email");
+
+      if (response.status === 200) {
+        setStatus("Email sent successfully!");
+        // Reset form fields
+        setEmail("");
+        setName("");
+        setSubject("");
+        setText("");
+      } else {
+        setStatus("Unexpected response from server.");
+      }
+    } catch (error: unknown) {
+      console.error("Error sending email:", error);
+      if (error instanceof Error) {
+        setStatus(error.message || "Error sending email.");
+      } else {
+        setStatus("An unexpected error occurred.");
+      }
     }
+
     setIsLoading(false);
   };
 
