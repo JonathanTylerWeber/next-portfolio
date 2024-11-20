@@ -15,12 +15,12 @@ export default function Header() {
         {!isMobile && (
           <div className="h-full w-full flex justify-center overflow-hidden relative">
             <Image
-              src="/portfolio.png"
+              src="/portfolioNew.png"
               alt="portfolio image"
               priority
               width={900}
               height={900}
-              className="object-contain object-bottom pr-32"
+              className="object-contain object-bottom"
             />
           </div>
         )}
@@ -30,7 +30,7 @@ export default function Header() {
           <div className="h-full w-full flex justify-center overflow-visible relative">
             <div className="h-[calc(90vh)] w-auto absolute bottom-0 ">
               <Image
-                src="/portfolio.png"
+                src="/portfolioNew.png"
                 alt="portfolio image"
                 priority
                 width={750}
