@@ -12,7 +12,7 @@ export default function Header() {
     <>
       <div className="h-screen w-screen bg-[#76ABAE] relative">
         {/* desktop image */}
-        {!isMobile && (
+        {/* {!isMobile && (
           <div className="h-full w-full flex justify-center overflow-hidden relative">
             <Image
               src="/portfolioNew.png"
@@ -23,10 +23,10 @@ export default function Header() {
               className="object-contain object-bottom"
             />
           </div>
-        )}
+        )} */}
 
         {/* mobile image */}
-        {isMobile && (
+        {/* {isMobile && (
           <div className="h-full w-full flex justify-center overflow-visible relative">
             <div className="h-[calc(90vh)] w-auto absolute bottom-0 ">
               <Image
@@ -39,7 +39,49 @@ export default function Header() {
               />
             </div>
           </div>
-        )}
+        )} */}
+
+        {/* Image Container */}
+        <div className="h-full w-full flex justify-center overflow-hidden relative">
+          <div
+            className="
+              relative
+              h-full
+              w-full
+              flex
+              justify-center
+              overflow-visible
+              lg:overflow-hidden
+            "
+          >
+            <div
+              className="
+                absolute
+                bottom-0
+                h-[calc(90vh)]
+                w-auto
+                lg:static
+                lg:h-full
+                lg:w-full
+              "
+            >
+              <Image
+                src="/portfolioNew.png"
+                alt="portfolio image"
+                priority
+                className="
+                  object-bottom
+                  object-cover
+                  w-full
+                  h-full
+                  lg:object-contain
+                "
+                width={900}
+                height={900}
+              />
+            </div>
+          </div>
+        </div>
 
         {!isMobile && (
           <div className="absolute right-12 top-[40%] z-10">
