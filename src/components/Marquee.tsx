@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import {
   motion,
   useSpring,
@@ -8,7 +8,6 @@ import {
   useMotionValue,
   useVelocity,
   useAnimationFrame,
-  useMotionValueEvent,
   useScroll,
 } from "motion/react";
 import { wrap } from "@motionone/utils";
@@ -45,30 +44,6 @@ export default function Marquee() {
   });
 
   const isMobile = useIsMobile();
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    console.log("scrollY:", latest);
-  });
-
-  useEffect(() => {
-    const unsubscribeVelocity = scrollVelocity.on("change", (latest) => {
-      console.log("scrollVelocity:", latest);
-    });
-
-    const unsubscribeSmoothVelocity = smoothVelocity.on("change", (latest) => {
-      console.log("smoothVelocity:", latest);
-    });
-
-    const unsubscribeVelocityFactor = velocityFactor.on("change", (latest) => {
-      console.log("velocityFactor:", latest);
-    });
-
-    return () => {
-      unsubscribeVelocity();
-      unsubscribeSmoothVelocity();
-      unsubscribeVelocityFactor();
-    };
-  }, [scrollVelocity, smoothVelocity, velocityFactor]);
 
   return (
     <div className="relative overflow-hidden whitespace-nowrap flex flex-wrap">

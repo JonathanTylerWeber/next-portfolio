@@ -3,6 +3,7 @@ import Image from "next/image";
 import MagnetLink from "./MagnetLink";
 import FadeInOnScroll from "./FadeInOnScroll";
 import Link from "next/link";
+import portfolio2 from "../../public/portfolio2.jpg";
 
 const AboutBody = () => {
   const resumeUrl =
@@ -44,12 +45,11 @@ const AboutBody = () => {
                 <div className="flex items-center justify-center h-auto px-10 md:px-0 md:pr-0 lg:pr-5 xl:pr-40">
                   <FadeInOnScroll>
                     <Image
-                      src="/portfolio2.jpg"
+                      src={portfolio2}
                       alt="Picture of Jonathan"
-                      width={500}
-                      height={500}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
                       className="rounded-lg"
+                      placeholder="blur"
                     />
                   </FadeInOnScroll>
                 </div>

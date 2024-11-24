@@ -3,6 +3,7 @@
 import Marquee from "./Marquee";
 import Image from "next/image";
 import { FlipText } from "./FlipText";
+import portfolioNew from "../../public/portfolioNew.png";
 
 export default function Header() {
   return (
@@ -33,7 +34,7 @@ export default function Header() {
               "
             >
               <Image
-                src="/portfolioNew.png"
+                src={portfolioNew}
                 alt="portfolio image"
                 priority
                 className="
@@ -43,8 +44,6 @@ export default function Header() {
                   h-full
                   lg:object-contain
                 "
-                width={900}
-                height={900}
               />
             </div>
           </div>
