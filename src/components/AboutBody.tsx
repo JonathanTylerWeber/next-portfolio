@@ -11,8 +11,8 @@ const AboutBody = () => {
 
   return (
     <>
-      <div className="w-full relative bg-[#222831] z-10 pt-8 sm:pt-20 lg:pt-40">
-        <div className="pt-12 pb-20">
+      <div className="w-full relative bg-[#222831] z-10 pt-8 md:pt-16 lg:pt-40">
+        <div className="pb-20">
           <div className=" mx-auto">
             <FadeInOnScroll>
               <h1 className="text-center text-white font-kanit font-semibold mb-4 text-4xl md:text-6xl lg:text-8xl pb-10 lg:pb-20">
@@ -47,6 +47,8 @@ const AboutBody = () => {
                     <Image
                       src={portfolio2}
                       alt="Picture of Jonathan"
+                      width={500}
+                      height={500}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
                       className="rounded-lg"
                       placeholder="blur"

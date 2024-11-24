@@ -5,8 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useScroll, useTransform, motion } from "framer-motion";
-
-import MagnetLink from "./MagnetLink";
+import profileCircle from "../../public//profileCircle.png";
 
 const Footer: React.FC = () => {
   const githubLink = "https://github.com/JonathanTylerWeber";
@@ -59,11 +58,12 @@ const Footer: React.FC = () => {
         <div className="mt-32">
           <div className="flex items-center justify-center mb-4 md:mb-0 pb-32">
             <Image
-              src="/profileCircle.png"
+              src={profileCircle}
               alt="Profile"
               width={150}
               height={150}
               className="rounded-full"
+              placeholder="blur"
             />
             <p className="ml-4 text-3xl md:text-6xl lg:text-8xl">
               Open for work
@@ -94,26 +94,22 @@ const Footer: React.FC = () => {
           </p>
         </div>
         <div className="flex space-x-32 pt-20 lg:pt-0">
-          <MagnetLink>
-            <Link
-              href={githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-6xl text-[#8bced2] hover:text-white transition-colors duration-300"
-            >
-              <FaGithub />
-            </Link>
-          </MagnetLink>
-          <MagnetLink>
-            <Link
-              href={linkedInLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-6xl text-[#8bced2] hover:text-white transition-colors duration-300"
-            >
-              <FaLinkedin />
-            </Link>
-          </MagnetLink>
+          <Link
+            href={githubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-6xl text-[#8bced2] hover:text-white transition-colors duration-300"
+          >
+            <FaGithub />
+          </Link>
+          <Link
+            href={linkedInLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-6xl text-[#8bced2] hover:text-white transition-colors duration-300"
+          >
+            <FaLinkedin />
+          </Link>
         </div>
       </div>
     </footer>

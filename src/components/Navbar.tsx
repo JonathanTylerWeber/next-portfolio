@@ -96,7 +96,7 @@ export default function Navbar() {
               }`}
               onClick={pathname === "/" ? scrollToProjects : undefined}
             >
-              {!isMobile && "Jonathan Weber"}
+              {!isMobile && "Home"}
             </Link>
           </MagnetLink>
         </div>
@@ -150,7 +150,7 @@ export default function Navbar() {
             className="text-4xl text-white hover:text-[#8bced2] whitespace-nowrap"
             onClick={pathname === "/" ? scrollToProjects : undefined}
           >
-            Jonathan Weber
+            Home
           </Link>
           <Link
             href="/about"
@@ -167,15 +167,11 @@ export default function Navbar() {
         </div>
         <div className="flex mt-20 justify-around">
           <Link href={githubLink} target="_blank" rel="noopener noreferrer">
-            <MagnetLink>
-              <FaGithub className="text-white text-6xl md:text-7xl m-5 hover:text-[#8bced2]" />
-            </MagnetLink>
+            <FaGithub className="text-white text-6xl md:text-7xl m-5 hover:text-[#8bced2]" />
           </Link>
 
           <Link href={linkedInLink} target="_blank" rel="noopener noreferrer">
-            <MagnetLink>
-              <FaLinkedin className="text-white text-6xl md:text-7xl m-5 hover:text-[#8bced2]" />
-            </MagnetLink>
+            <FaLinkedin className="text-white text-6xl md:text-7xl m-5 hover:text-[#8bced2]" />
           </Link>
         </div>
       </div>
