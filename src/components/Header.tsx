@@ -27,7 +27,7 @@ export default function Header() {
                 absolute
                 bottom-0
                 h-[calc(90vh)]
-                w-auto
+                w-full
                 xl:static
                 xl:h-full
                 xl:w-full
