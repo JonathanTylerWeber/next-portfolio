@@ -42,7 +42,7 @@ export default function Header() {
                   object-cover
                   w-full
                   h-full
-                  lg:object-contain
+                  md:object-contain
                 "
               />
             </div>
