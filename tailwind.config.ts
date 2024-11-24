@@ -23,4 +23,11 @@ export default {
     },
   },
   plugins: [],
+  safelist: [
+    "translate-x-full",
+    "translate-x-0",
+    "transition-transform",
+    "duration-300",
+    "transform",
+  ],
 } satisfies Config;

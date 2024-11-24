@@ -11,7 +11,7 @@ const AboutBody = () => {
 
   return (
     <>
-      <div className="w-full relative bg-[#222831] z-10 pt-8 md:pt-16 lg:pt-40">
+      <div className="w-full relative bg-[#222831] z-10 pt-24 lg:pt-40">
         <div className="pb-20">
           <div className=" mx-auto">
             <FadeInOnScroll>
