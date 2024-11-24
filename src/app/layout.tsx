@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Kanit } from "next/font/google";
 import "./globals.css";
+import Preloader from "@/components/Preloader";
 
 const kanit = Kanit({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -26,7 +27,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${kanit.className} antialiased`}>
-        <main>{children}</main>
+        <main>
+          <Preloader>{children}</Preloader>
+        </main>
       </body>
     </html>
   );

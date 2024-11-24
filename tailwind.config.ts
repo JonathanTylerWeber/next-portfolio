@@ -20,6 +20,20 @@ export default {
       fontWeight: {
         medium: "500",
       },
+      keyframes: {
+        typing: {
+          from: { width: "0" },
+        },
+        blink: {
+          "50%": { "border-color": "transparent" },
+        },
+      },
+      animation: {
+        typing: "typing 2.5s steps(15)",
+        blink: "blink .4s step-end infinite alternate",
+        "typing-blink":
+          "typing 2.5s steps(15), blink .4s step-end infinite alternate",
+      },
     },
   },
   plugins: [],
