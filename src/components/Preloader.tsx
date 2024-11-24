@@ -1,8 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, ReactNode } from "react";
 
-const PageTransition = ({ children }: any) => {
+interface PageTransitionProps {
+  children: ReactNode;
+}
+
+const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
   const [showChildren, setShowChildren] = useState(false);
   const [isActive, setIsActive] = useState(true); // Start with isActive true
   const [showTitle, setShowTitle] = useState(false); // State to control title animation
@@ -43,7 +47,7 @@ const PageTransition = ({ children }: any) => {
               : ""
           }`}
         >
-          Hi I'm Jonathan
+          Hi I&apos;m Jonathan
         </p>
       </div>
       {showChildren && children}
