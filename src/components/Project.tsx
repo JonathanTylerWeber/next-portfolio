@@ -9,7 +9,7 @@ interface ProjectProps {
   tech: string;
   video: string;
   projLink: string;
-  gitLink: string;
+  gitLink?: string;
 }
 
 export default function Project({
@@ -39,10 +39,6 @@ export default function Project({
           {projDesc}
         </p>
         <p className="lg:text-xl pb-5 text-gray-400 font-kanit">{tech}</p>
-        <p className="lg:text-xl pb-5 font-light text-white">
-          (The site is deployed on render, please allow 15-30s for the page to
-          load and to signup/login)
-        </p>
         <div className="flex justify-around md:mt-12 lg:px-20">
           <MagnetLink>
             <Link
@@ -54,16 +50,18 @@ export default function Project({
               <FaLink />
             </Link>
           </MagnetLink>
-          <MagnetLink>
-            <Link
-              href={gitLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#8bced2] text-6xl inline-block font-kanit hover:text-white"
-            >
-              <FaGithub />
-            </Link>
-          </MagnetLink>
+          {gitLink && (
+            <MagnetLink>
+              <Link
+                href={gitLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#8bced2] text-6xl inline-block font-kanit hover:text-white"
+              >
+                <FaGithub />
+              </Link>
+            </MagnetLink>
+          )}
         </div>
       </div>
     </div>

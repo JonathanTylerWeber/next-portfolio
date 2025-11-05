@@ -51,14 +51,14 @@ export default function Header() {
 
         {/* Desktop Text */}
         <div className="hidden xl:block absolute right-12 top-[40%] z-10">
-          <FlipText hoverText="Located &nbsp;in &nbsp;Chengdu, &nbsp;China">
-            Junior &nbsp;Full &nbsp;Stack &nbsp;Developer
+          <FlipText hoverText="Located &nbsp;in &nbsp;Pollock, &nbsp;Louisiana">
+            Full &nbsp;Stack &nbsp;Software &nbsp;Engineer &nbsp;
           </FlipText>
         </div>
 
         {/* Mobile Text */}
         <div className=" xl:hidden absolute bottom-14 text-2xl sm:text-3xl md:text-4xl left-1/2 transform -translate-x-1/2 flex justify-center whitespace-nowrap">
-          <p>Junior Full Stack Developer</p>
+          <p>Full Stack Developer</p>
         </div>
 
         {/* Marquee */}

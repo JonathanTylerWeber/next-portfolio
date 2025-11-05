@@ -28,7 +28,7 @@ export default function Body() {
                     href="/about"
                     className="text-4xl lg:text-5xl text-[#8bced2] font-kanit hover:text-white whitespace-nowrap"
                   >
-                    {"< aboutMe />"}
+                    {"< AboutMe />"}
                   </Link>
                 </MagnetLink>
               </div>
@@ -43,17 +43,30 @@ export default function Body() {
 
           {/* Projects */}
           <Project
-            video="/proseVid.mp4"
-            alt={"prose website"}
-            projName={"Prose Perfector"}
+            video="/ScrivnrVid.mp4"
+            alt={"scrivnr marketing site"}
+            projName={"Scrivnr"}
             projDesc={
-              "Prose Perfector is a web application designed to enhance the writing skills of its users using OpenAI's API. It offers a seamless experience where writers can securely sign up, submit their writing pieces for evaluation, and receive detailed feedback. Key features include the ability to specify the type of writing and desired style, obtaining ratings, and receiving a rewritten version of their text for clarity and style improvement. Users can manage their profiles, view submission history, and benefit from robust authentication and password security measures."
+              "The Scrivnr Marketing Site is a responsive, SEO-optimized platform I helped build from the ground up at Manafall, alongside Scrivnr’s client application. I implemented the UI based on the design team’s vision, ensuring a seamless, accessible, and high-performance experience that aligns with the brand’s identity. The site is fully integrated with a content management system, allowing the client to easily update and manage their own content, and features subtle motion and interaction design to create a polished, engaging user experience."
             }
             tech={
-              "React, React Bootstrap, Vite, Node.js, Express, PostgreSQL, OpenAI API, ViteTest, Jest, JWT (jsonwebtoken, jwt-decode), bcrypt, jsonschema, axios, Font Awesome"
+              "Next.js, React 19, TypeScript, Tailwind CSS, Framer Motion, Radix UI, Shadcn, Strapi CMS, React Hook Form, Zod, Nodemailer, Lucide React, Embla Carousel, Remark/Markdown, ESLint, Prettier"
             }
-            projLink={"https://capstone-2-cetn.onrender.com/"}
-            gitLink={"https://github.com/JonathanTylerWeber/capstone-2"}
+            projLink={"https://www.scrivnr.com/"}
+          />
+
+          <Project
+            video="/LegibillVid.mp4"
+            alt={"legibill"}
+            projName={"Legibill"}
+            projDesc={
+              "Legibill is an open-source web application that allows users to explore and track legislation across the United States. It integrates with the LegiScan API to provide detailed information on bills, their history, sponsors, and legislative progress. Users can search by keyword, filter by state and year, and view which bills each legislator has sponsored. I contributed to the project by integrating NextUI, adding key features on the backend, and optimizing large API responses from LegiScan to significantly enhance performance and data handling efficiency."
+            }
+            tech={
+              "Next.js, React, TypeScript, Prisma, PostgreSQL, NextAuth, Tailwind CSS, NextUI, Framer Motion, bcrypt"
+            }
+            projLink={"https://www.legibill.org/"}
+            gitLink={"https://github.com/SevanBadal/legibill"}
           />
 
           <Project

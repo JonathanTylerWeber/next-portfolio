@@ -41,7 +41,7 @@ export default function MagnetLink({ children }: MagnetLinkProps) {
           ? undefined
           : { type: "spring", stiffness: 150, damping: 15, mass: 0.1 }
       }
-      className=" p-2"
+      className="hover:cursor-pointer p-2"
     >
       {children}
     </motion.div>
