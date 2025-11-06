@@ -70,17 +70,17 @@ export default function Body() {
           />
 
           <Project
-            video="/translateVid.mp4"
-            alt={"translate website"}
-            projName={"Translate Web App"}
+            video="/PaperToss.mp4"
+            alt={"paper toss game"}
+            projName={"Paper Toss"}
             projDesc={
-              "The Translate Web App is a comprehensive tool designed for seamless translation between English and Chinese languages. Utilizing the Google Cloud Translate API, users can input text to receive accurate translations along with phonetic spellings (pinyin). Key features include user authentication, translation history management, saving and unsaving of translations, and password reset functionality."
+              "I recreated the classic Paper Toss game to explore Three.js. In the game you flick a paper ball into a trash can while contending with randomized wind forces. I modeled assets in Blender, implemented realistic physics and collisions, and optimized performance for smooth, responsive gameplay across devices."
             }
             tech={
-              "HTML, CSS, Bootstrap, JavaScript, Flask (Python), PostgreSQL, Google Cloud Translate, Flask-DebugToolbar, Flask-Bcrypt, Xpinyin, Mailjet, Python-dotenv, Jinja, Font Awesome"
+              "Three.js, React Three Fiber, Drei, Rapier, React 19, Zustand, Leva, Tailwind CSS, Vite, TypeScript"
             }
-            projLink={"https://translate-e40f.onrender.com/"}
-            gitLink={"https://github.com/JonathanTylerWeber/capstone-1"}
+            projLink={"https://paper-toss-phi.vercel.app/"}
+            gitLink={"https://github.com/JonathanTylerWeber/paper-toss"}
           />
         </div>
       </div>

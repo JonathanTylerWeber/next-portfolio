@@ -5,27 +5,27 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useScroll, useTransform, motion } from "framer-motion";
-import profileCircle from "../../public//profileCircle.png";
+import profileCircle from "../../public/profileCircle.png";
 
 const Footer: React.FC = () => {
   const githubLink = "https://github.com/JonathanTylerWeber";
   const linkedInLink = "https://www.linkedin.com/in/jonathantweber/";
 
-  const [chinaTime, setChinaTime] = useState<string>("");
+  const [louisianaTime, setLouisianaTime] = useState<string>("");
 
   useEffect(() => {
-    const updateChinaTime = () => {
+    const updateLouisianaTime = () => {
       const options: Intl.DateTimeFormatOptions = {
-        timeZone: "Asia/Shanghai",
+        timeZone: "America/Chicago", // Louisiana timezone
         hour: "2-digit",
         minute: "2-digit",
       };
       const formatter = new Intl.DateTimeFormat([], options);
-      setChinaTime(formatter.format(new Date()));
+      setLouisianaTime(formatter.format(new Date()));
     };
 
-    updateChinaTime();
-    const interval = setInterval(updateChinaTime, 60000); // Update every minute
+    updateLouisianaTime();
+    const interval = setInterval(updateLouisianaTime, 60000); // Update every minute
 
     return () => clearInterval(interval);
   }, []);
@@ -90,7 +90,7 @@ const Footer: React.FC = () => {
       <div className="flex flex-col lg:flex-row items-center justify-between w-full px-32 pb-10 relative z-20">
         <div className="mb-6 md:mb-0">
           <p className="text-xl md:text-3xl text-gray-300 whitespace-nowrap">
-            Local Time: {chinaTime} CST
+            Local Time: {louisianaTime} CST
           </p>
         </div>
         <div className="flex space-x-32 pt-20 lg:pt-0">

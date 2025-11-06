@@ -2,13 +2,9 @@ import { FaLink } from "react-icons/fa";
 import Image from "next/image";
 import MagnetLink from "./MagnetLink";
 import FadeInOnScroll from "./FadeInOnScroll";
-import Link from "next/link";
 import portfolio2 from "../../public/portfolio2.jpg";
 
 const AboutBody = () => {
-  const resumeUrl =
-    "https://docs.google.com/document/d/1FdGl1zHjkR-HkZEZqROrZZ6rKJrNylbvb7j1Tk-y6HU/edit?usp=sharing";
-
   return (
     <>
       <div className="w-full relative bg-[#222831] z-10 pt-24 lg:pt-40">
@@ -32,12 +28,10 @@ const AboutBody = () => {
                     us.
                   </p>
                   <p className="text-white font-kanit font-light md:text-2xl lg:text-3xl pb-10 xl:pb-0 xl:pl-48 lg:leading-normal text-justify">
-                    Now, having completed the Springboard Software Engineering
-                    Bootcamp and currently in the long visa process for my wife,
-                    we plan on arriving in the US in early 2025. I&apos;m
-                    looking for a remote position for now so that I can stay
-                    with my wife, and when the time comes to finally move,
-                    I&apos;m open to relocating for a position.
+                    Now I&apos;m back in the US in Pollock, Louisiana with my
+                    wife and my brother. Since completing the Springboard
+                    Software Engineering Bootcamp I&apos;ve done various
+                    freelance work, and currently am working with Manafall.
                   </p>
                 </FadeInOnScroll>
               </div>
@@ -61,17 +55,16 @@ const AboutBody = () => {
             <FadeInOnScroll>
               <div className="flex justify-center items-center mb-8 md:mb-16 lg:mb-20">
                 <MagnetLink>
-                  <Link
-                    href={resumeUrl}
+                  <a
+                    href="/JonathanWeberResume.pdf"
+                    download="JonathanWeberResume.pdf"
                     className="text-[#8bced2] font-kanit text-5xl relative hover:text-white"
-                    target="_blank"
-                    rel="noopener noreferrer"
                   >
                     <span>
                       Resume
                       <FaLink className="ml-5 inline" />
                     </span>
-                  </Link>
+                  </a>
                 </MagnetLink>
               </div>
             </FadeInOnScroll>
@@ -80,8 +73,8 @@ const AboutBody = () => {
               <p className="text-white font-kanit font-light md:text-2xl lg:text-3xl px-10 md:px-20 xl:px-52 lg:leading-normal text-justify">
                 When I&apos;m not programming, I spend time with our four cats,
                 playing D&D with friends, and frequenting the nearby bouldering
-                gym in Chengdu. For the past ten years, I&apos;ve been making
-                and producing my own music and videos. Music has always been a
+                gyms. For the past ten years, I&apos;ve been making and
+                producing my own music and videos. Music has always been a
                 central passion of mine, spanning genres from jazz and funk to
                 electronic and hip-hop. Whether programming or playing music,
                 I&apos;m always trying to learn new things to push myself and
