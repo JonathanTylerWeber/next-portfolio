@@ -56,8 +56,8 @@ const AboutBody = () => {
               <div className="flex justify-center items-center mb-8 md:mb-16 lg:mb-20">
                 <MagnetLink>
                   <a
-                    href="/JonathanWeberResume.pdf"
-                    download="JonathanWeberResume.pdf"
+                    href="/JonathanWebersResume.pdf"
+                    download="JonathanWebersResume.pdf"
                     className="text-[#8bced2] font-kanit text-5xl relative hover:text-white"
                   >
                     <span>
